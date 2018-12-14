@@ -24,7 +24,7 @@ def run_steps(agent):
     t0 = time.time()
     while True:
         if config.save_interval and not agent.total_steps % config.save_interval:
-            agent.save('data/model-%s-%s-%s.bin' % (agent_name, config.task_name, config.tag))
+            agent.save('/home/ubuntu/experiment_results/rl_atari/model-%s-%s-%s-%d.bin' % (agent_name, config.task_name, config.tag, agent.total_steps))
         if config.log_interval and not agent.total_steps % config.log_interval and len(agent.episode_rewards):
             rewards = agent.episode_rewards
             agent.episode_rewards = []

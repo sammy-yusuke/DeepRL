@@ -36,6 +36,7 @@ def dqn_cart_pole():
 
 def dqn_pixel_atari(name):
     config = Config()
+    config.save_interval = int(1e5)
     config.history_length = 4
     log_dir = get_default_log_dir(dqn_pixel_atari.__name__)
     config.task_fn = lambda: Task(name, log_dir=log_dir)
@@ -452,8 +453,8 @@ if __name__ == '__main__':
     # ppo_continuous('HalfCheetah-v2')
     # ddpg_continuous('HalfCheetah-v2')
 
-    # game = 'BreakoutNoFrameskip-v4'
-    # dqn_pixel_atari(game)
+    game = 'BreakoutNoFrameskip-v4'
+    dqn_pixel_atari(game)
     # quantile_regression_dqn_pixel_atari(game)
     # categorical_dqn_pixel_atari(game)
     # a2c_pixel_atari(game)
