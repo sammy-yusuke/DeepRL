@@ -435,7 +435,7 @@ def plot():
     plt.savefig('./images/breakout.png')
 
 from sacred import Experiment
-ex = Experiment('nas_try')
+ex = Experiment('rl_atari')
 
 @ex.config
 def nas_try_config():
