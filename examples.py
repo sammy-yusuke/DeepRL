@@ -434,12 +434,20 @@ def plot():
     plt.legend()
     plt.savefig('./images/breakout.png')
 
-if __name__ == '__main__':
+from sacred import Experiment
+ex = Experiment('nas_try')
+
+@ex.config
+def nas_try_config():
+    pass
+
+@ex.automain
+def run(_run, _config):
     mkdir('log')
     mkdir('tf_log')
     set_one_thread()
     random_seed()
-    select_device(-1)
+    select_device(0)
     # select_device(0)
 
     # dqn_cart_pole()
