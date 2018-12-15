@@ -22,6 +22,7 @@ def run_steps(agent):
     config = agent.config
     agent_name = agent.__class__.__name__
     t0 = time.time()
+    os.makedirs('/home/ubuntu/experiment_results/rl_atari/', exist_ok=True)
     while True:
         if config.save_interval and not agent.total_steps % config.save_interval:
             agent.save('/home/ubuntu/experiment_results/rl_atari/model-%s-%s-%s-%d.bin' % (agent_name, config.task_name, config.tag, agent.total_steps))
